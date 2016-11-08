@@ -52,4 +52,9 @@ D:\CDC\ADO .NET Entity Framework\EFandLINQPractices\EFandLINQPractices\bin\Micro
 D:\CDC\ADO .NET Entity Framework\EFandLINQPractices\EFandLINQPractices\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\CDC\ADO .NET Entity Framework\EFandLINQPractices\EFandLINQPractices\obj\Debug\EFandLINQPractices.dll
 D:\CDC\ADO .NET Entity Framework\EFandLINQPractices\EFandLINQPractices\obj\Debug\EFandLINQPractices.pdb
+D:\CDC\ADO .NET Entity Framework\EFandLINQPractices\EFandLINQPractices\bin\Glimpse.Ado.dll
+D:\CDC\ADO .NET Entity Framework\EFandLINQPractices\EFandLINQPractices\bin\Glimpse.AspNet.dll
+D:\CDC\ADO .NET Entity Framework\EFandLINQPractices\EFandLINQPractices\bin\Glimpse.Core.dll
+D:\CDC\ADO .NET Entity Framework\EFandLINQPractices\EFandLINQPractices\bin\Glimpse.EF6.dll
+D:\CDC\ADO .NET Entity Framework\EFandLINQPractices\EFandLINQPractices\bin\Glimpse.Mvc5.dll
 D:\CDC\ADO .NET Entity Framework\EFandLINQPractices\EFandLINQPractices\obj\Debug\EFandLINQPractices.csprojResolveAssemblyReference.cache

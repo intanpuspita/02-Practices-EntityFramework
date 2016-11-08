@@ -62,8 +62,13 @@ namespace EFandLINQPractices.Controllers
             {
                 if (repo.GetById(newStudent.StudentID) != null) throw new Exception("Student ID already registered");
 
-                repo.Add(newStudent);
-                repo.SaveChanges();
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    repo.Add(newStudent);
+                    repo.SaveChanges();
+
+                    scope.Complete();
+                }
 
                 return RedirectToAction("Index");
             }
@@ -175,6 +180,40 @@ namespace EFandLINQPractices.Controllers
             {
                 ViewBag.Message = "Error : " + ex.Message;
                 return View(data);
+            }
+        }
+
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            Student data = repo.GetById(id);
+            if (data == null)
+                return HttpNotFound();
+
+            return View(data);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(string id)
+        {
+
+            try
+            {
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    repo.Delete(id);
+                    repo.SaveChanges();
+
+                    scope.Complete();
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "Error : " + ex.Message;
+                return View("Index");
             }
         }
 	}

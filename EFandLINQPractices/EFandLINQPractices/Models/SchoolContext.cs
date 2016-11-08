@@ -10,7 +10,8 @@ namespace EFandLINQPractices.Models
         /// </summary>
         public SchoolContext() : base("dbschool") 
         {
-            Database.SetInitializer<SchoolContext>(new DropCreateDatabaseAlways<SchoolContext>());
+            Database.SetInitializer<SchoolContext>(new DropCreateDatabaseIfModelChanges<SchoolContext>());
+            //Database.SetInitializer<SchoolContext>(new DropCreateDatabaseAlways<SchoolContext>());
         }
 
         /// <summary>
@@ -30,7 +31,25 @@ namespace EFandLINQPractices.Models
         /// </remarks>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //// Set primary key of table
             modelBuilder.Entity<Student>().HasKey(d => d.StudentID);
+            modelBuilder.Entity<Subject>().HasKey(d => d.SubjectId);
+
+            //// Create many-to-many relationship
+            //modelBuilder.Entity<Student>()
+            //    .HasMany(s => s.Subject)
+            //    .WithMany(sb => sb.Student)
+            //    .Map(mt => mt.ToTable("SubjectAssignment"));
+
+            modelBuilder.Entity<Student>()
+                  .HasMany(x => x.subject)
+                  .WithMany(x => x.student)
+                  .Map(x =>
+                  {
+                      x.ToTable("SubjectAssignment");
+                      x.MapLeftKey("StudentId");
+                      x.MapRightKey("SubjectId");
+                  });
 
             base.OnModelCreating(modelBuilder);
         }
@@ -43,6 +62,28 @@ namespace EFandLINQPractices.Models
         /// </value>
         public DbSet<Student> Students { get; set; }
 
+        /// <summary>
+        /// Gets or sets the subjects.
+        /// </summary>
+        /// <value>
+        /// The subjects.
+        /// </value>
+        public DbSet<Subject> Subjects { get; set; }
+
+        /// <summary>
+        /// Gets or sets the subject assignments.
+        /// </summary>
+        /// <value>
+        /// The subject assignments.
+        /// </value>
+        public DbSet<SubjectAssignment> SubjectAssignments { get; set; }
+
+        /// <summary>
+        /// Gets or sets the student edit view models.
+        /// </summary>
+        /// <value>
+        /// The student edit view models.
+        /// </value>
         public System.Data.Entity.DbSet<EFandLINQPractices.ViewModels.StudentEditViewModel> StudentEditViewModels { get; set; }
     }
 }

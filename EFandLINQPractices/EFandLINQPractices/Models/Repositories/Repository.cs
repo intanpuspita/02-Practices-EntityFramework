@@ -44,6 +44,12 @@ namespace EFandLINQPractices.Models.Repositories
             //context.Entry(entity).State = EntityState.Modified;
         }
 
+        public void Delete(string id)
+        {
+            T data = dbset.Find(id);
+            dbset.Remove(data);
+        }
+
         public void SaveChanges()
         {
             this.context.SaveChanges();
