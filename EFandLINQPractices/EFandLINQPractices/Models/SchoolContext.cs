@@ -34,22 +34,23 @@ namespace EFandLINQPractices.Models
             //// Set primary key of table
             modelBuilder.Entity<Student>().HasKey(d => d.StudentID);
             modelBuilder.Entity<Subject>().HasKey(d => d.SubjectId);
+            modelBuilder.Entity<SubjectAssignment>().HasKey(d => new { d.StudentID, d.SubjectId }).ToTable("SubjectAssignment"); ;
 
             //// Create many-to-many relationship
-            //modelBuilder.Entity<Student>()
-            //    .HasMany(s => s.Subject)
-            //    .WithMany(sb => sb.Student)
-            //    .Map(mt => mt.ToTable("SubjectAssignment"));
+            //modelBuilder.Entity<SubjectAssignment>()
+            //    .HasRequired(d => new { d.subjects, d.students });
 
-            modelBuilder.Entity<Student>()
-                  .HasMany(x => x.subject)
-                  .WithMany(x => x.student)
-                  .Map(x =>
-                  {
-                      x.ToTable("SubjectAssignment");
-                      x.MapLeftKey("StudentId");
-                      x.MapRightKey("SubjectId");
-                  });
+            modelBuilder.Entity<Student>().HasMany(d => d.subjectAssignment);
+            modelBuilder.Entity<Subject>().HasMany(d => d.subjectAssignment);
+            //modelBuilder.Entity<Student>()
+            //      .HasMany(x => x.subject)
+            //      .WithMany(x => x.student)
+            //      .Map(x =>
+            //      {
+            //          x.ToTable("SubjectAssignment");
+            //          x.MapLeftKey("StudentId");
+            //          x.MapRightKey("SubjectId");
+            //      });
 
             base.OnModelCreating(modelBuilder);
         }

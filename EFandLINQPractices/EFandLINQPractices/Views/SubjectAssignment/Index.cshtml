@@ -6,23 +6,16 @@
 
 <h2>Index</h2>
 
-@using (Html.BeginForm("Search", "Transaction"))
-{
-    <input type="text" id="searchtext" name="searchtext" />
-    <input type="submit" value="Search" class="btn btn-default" />
-}<br>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Student Name", "Sort", new { field = "stdname" })
-            <span class="fa fa-object-group" onclick="location.href='@Url.Action("Group", "Transaction", new RouteValueDictionary(new { groupby = "stdname" }))'" style="cursor:pointer;"></span>
+            @Html.DisplayNameFor(model => model.students.StudentName)
+        </th>
         <th>
-            @Html.ActionLink("Subject Name", "Sort", new { field = "sbname" })
-            <span class="fa fa-object-group" onclick="location.href='@Url.Action("Group", "Transaction", new RouteValueDictionary(new { groupby = "sbname" }))'" style="cursor:pointer;"></span>
+            @Html.DisplayNameFor(model => model.subjects.SubjectName)
         </th>
         <th></th>
     </tr>

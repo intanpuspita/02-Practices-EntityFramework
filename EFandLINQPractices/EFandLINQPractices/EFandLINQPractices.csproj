@@ -186,6 +186,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\SubjectAssignmentController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -262,6 +263,12 @@
     <Content Include="Views\Subject\Details.cshtml" />
     <Content Include="Views\Subject\Edit.cshtml" />
     <Content Include="Views\Subject\Index.cshtml" />
+    <Content Include="Views\Transaction\Index-old.cshtml" />
+    <Content Include="Views\SubjectAssignment\Create.cshtml" />
+    <Content Include="Views\SubjectAssignment\Delete.cshtml" />
+    <Content Include="Views\SubjectAssignment\Details.cshtml" />
+    <Content Include="Views\SubjectAssignment\Edit.cshtml" />
+    <Content Include="Views\SubjectAssignment\Index.cshtml" />
     <Content Include="Views\Transaction\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

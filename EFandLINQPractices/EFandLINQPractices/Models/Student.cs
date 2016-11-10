@@ -10,6 +10,7 @@ namespace EFandLINQPractices.Models
         public DateTime StudentDOB { get; set; }
         public string StudentAddress { get; set; }
 
-        public List<Subject> subject { get; set; }
+        //public List<Subject> subject { get; set; }
+        public ICollection<SubjectAssignment> subjectAssignment { get; set; }
     }
 }

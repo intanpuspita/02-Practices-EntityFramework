@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -26,6 +27,7 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Student", "Index", "Student")</li>
                     <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
+                    <li>@Html.ActionLink("Subject Assignment", "Index", "SubjectAssignment")</li>
                     <li>@Html.ActionLink("Transaction", "Index", "Transaction")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
